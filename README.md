@@ -2,12 +2,6 @@
 Using swagger file in SAM
 
 
-We already create lambda as endpoint of API using SAM
-
-![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/67aa9157-310e-4152-862b-a7bf445a8a6a)
-
- we will be making changes to our code as per SAM specifications Swagger (https://swagger.io/)
-
 Until now, we were creating our APIs directly. However, the right way to do it is to first Design your APIs and then Implement it.
 
 Also, since APIs you create will be most likely consumed by others, it is better to design them in a standardized form. This is where 
@@ -16,19 +10,31 @@ Swagger comes into pictureSwagger is an open-source software framework that help
 
 RESTful Web services. It brings the whole ecosystem of standards, tools, specifications, best practices and people to help build best 
 
-APIs possible. Here are the steps we will complete in this demo.
+APIs possible.
 
-- Swagger with already created lambda
+ we will be making changes to our code as per SAM specifications Swagger
 
-- Creating API with Swagger and new lambda in SAM
 
-Let’s get started.
+We already create lambda as endpoint of API using SAM
+
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/67aa9157-310e-4152-862b-a7bf445a8a6a)
+
 
 If we are difining the swagger file already created lambda, we can directly put in the url of lambda.
 
 However if we are created lambda and API in the same SAM, the swagger file has to ingest the name of lambda from SAM
 
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/2af09993-7e2f-4276-99a0-b098a18f3c49)
+
+
+Let’s get started.
+
+ Here are the steps we will complete in this demo.
+
+- Swagger with already created lambda
+
+- Creating API with Swagger and new lambda in SAM
+
 
 # Swagger with already created lambda
 
