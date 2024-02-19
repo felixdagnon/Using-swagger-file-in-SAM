@@ -44,7 +44,7 @@ However if we are created lambda and API in the same SAM, the swagger file has t
 
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/2af09993-7e2f-4276-99a0-b098a18f3c49)
 
-# Sswagger with already created lambda
+# Swagger with already created lambda
 
 Here Sswagger  with url of AI gateway pointing to preexisting lambda. If we are exporting swagger from API and API gateway and we have to recreate
 
