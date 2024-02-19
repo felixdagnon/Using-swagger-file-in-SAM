@@ -18,23 +18,9 @@ RESTful Web services. It brings the whole ecosystem of standards, tools, specifi
 
 APIs possible. Here are the steps we will complete in this demo.
 
-- Setup Project structure
-  
-- Design API with Swagger
+- Swagger with already created lambda
 
-- Integrate swagger file with Lambda functions
-
-- Write code to implement Lambda functions
-
-- Define deployment template as per SAM specs
-
-- Deploy project using SAM template and CLI commands
-
-- Verify all resources are created properly
-
-- Testing of API
-
-- Clean up
+- Creating API with Swagger and new lambda in SAM
 
 Let’s get started.
 
