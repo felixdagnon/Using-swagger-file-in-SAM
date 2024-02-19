@@ -37,3 +37,22 @@ APIs possible. Here are the steps we will complete in this demo.
 - Clean up
 
 Let’s get started.
+
+If we are difining the swagger file already created lambda, we can directly put in the url of lambda.
+
+However if we are created lambda and API in the same SAM, the swagger file has to ingest the name of lambda from SAM
+
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/2af09993-7e2f-4276-99a0-b098a18f3c49)
+
+# Sswagger with already created lambda
+
+Here Sswagger pointing to preexisting lambda. If we are exporting swagger from API and API gateway and we have to recreate
+
+API in other environment, then we have to use this.
+
+We create a folder in cloud9 called APIfile and have swagger and preexisting lambda in it
+
+
+
+
+
