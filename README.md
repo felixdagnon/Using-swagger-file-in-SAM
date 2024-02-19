@@ -2,6 +2,8 @@
 Using swagger file in SAM
 
 
+
+
 Until now, we were creating our APIs directly. However, the right way to do it is to first Design your APIs and then Implement it.
 
 Also, since APIs you create will be most likely consumed by others, it is better to design them in a standardized form. This is where 
