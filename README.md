@@ -92,9 +92,28 @@ definitions:
     title: "Empty Schema"
 ```
 
-We create a folder in cloud9 called APIfile and have swagger and preexisting lambda in it.
+ Let's create a folder in cloud9 called APIfile and create file called "swagger-with-preexistingLambda.yaml" put in it
+ 
+ and create sam template  in SAM folder called "swagger-preexisting-lambda.yml"
 
-![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/198222f0-90ac-41f3-a3ed-75ebd23ddff7)
+```json
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: SAm and Swagger with preexisting Lambda
+Resources:
+  HelloCountryAPI:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: Dev
+      DefinitionUri: ./APIfiles/swagger-with-preexistingLambda.yaml
+
+```
+
+Here ine Cloud9 
+
+
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/0846396c-06c4-47ae-830b-715297177944)
+
 
 # Create swagger preexisting lambda template with SAM
 
@@ -148,7 +167,106 @@ Let's check query string in integration request. It's grabbing "naofCountry" fro
 
 The most difference here, we will give the name of lambda function in swagger template. Previouly, we let SAM give idendical name to the function.
 
-Here lambda will generated exactely the same name. We do not use arn of lambda in swagger template
+Here lambda will generated exactely the same name. We give the name of lammbda "HellotFromCountry" in arn in swagger file and name it "swagger-with-SAMcreatedLambda.yaml"
+
+ uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:944020312758:function:HellotFromCountry/invocations"
+
+```json
+swagger: "2.0"
+info:
+  version: "2024-01-31T11:07:13Z"
+  title: "GreatfromCountry"
+host: "4ipt1ltbz5.execute-api.us-east-1.amazonaws.com"
+basePath: "/Dev"
+schemes:
+- "https"
+paths:
+  /:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "nameofCountry"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        type: "aws"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:944020312758:function:HellotFromCountry/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestTemplates:
+          application/json: " {\"Country\":\"$input.params('nameofcountry')\"}"
+        passthroughBehavior: "when_no_templates"
+        cacheNamespace: "5q1e91vlab"
+        cacheKeyParameters:
+        - "method.request.querystring.nameofCountry"
+        contentHandling: "CONVERT_TO_TEXT"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
+```
+
+ Let's create a folder in cloud9 called APIfile and create file swagger-with-SAMcreatedLambda.yaml put in it
+ 
+ and create sam template in SAM folder called "swagger-SAMcreated-lambda.yml"
+
+```json
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: SAM and Swagger with created Lambda
+Resources:
+  HelloCountryAPI:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: Dev
+      DefinitionUri: ./APIfiles/swagger-with-SAMcreatedLambda.yaml
+  samfunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: HelloFromCountry
+      Handler: hello_country.lambda_handler
+      Runtime: python3.10
+      CodeUri: ./lambda-sam/hello_country.py
+      Description: Sample SAM Lambda Deployment
+      Events:
+        GetApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref "HelloCountryAPI"
+            Path: /
+            Method: GET 
+```
+
+Here ine Cloud9 
+
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/c33e59bf-39a7-4ff0-8f95-33c6eef2c188)
+
+
+
+
+
+
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/0846396c-06c4-47ae-830b-715297177944)
+
+
+
+
+
+
+
+
+
 
 
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/bece4023-cc77-4244-a859-81b200f53cd9)
@@ -160,13 +278,17 @@ $ sam package --template-file swagger-SAMcreated-lambda.yml --s3-bucket demotest
 
 The pacckage is downloaded in SAM folder of Cloud9
 
-![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/92acd7ff-8049-4a4a-b183-8a6951f99bc3)
+![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/55a8900f-d4bc-40f6-b836-20b959af1844)
 
 It take the code from local directory and put it in s3 bucket.
 
 Let's check s3 bucket
 
 ![image](https://github.com/felixdagnon/Create-API-and-lambda-events-using-SAM/assets/91665833/6338f502-f995-48cb-8617-3e459dca00e4)
+
+
+
+
 
 
 # Deploying swagger preexisting lambda package with SAM
