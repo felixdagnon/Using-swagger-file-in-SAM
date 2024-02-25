@@ -170,7 +170,7 @@ Here lambda will generated exactely the same name. We give the name of lammbda "
 
  uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:944020312758:function:HellotFromCountry/invocations"
 
-```json
+```yml
 swagger: "2.0"
 info:
   version: "2024-01-31T11:07:13Z"
@@ -220,7 +220,7 @@ definitions:
  
  and create sam template in SAM folder called "swagger-SAMcreated-lambda.yml"
 
-```json
+```yml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: SAM and Swagger with created Lambda
