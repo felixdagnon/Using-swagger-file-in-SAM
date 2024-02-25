@@ -46,7 +46,7 @@ API in other environment, then we have to use this.
 
 Previously, I export swagger file from API gateway stage "GreatfromCountry " I have created
 
-```json
+```yml
 swagger: "2.0"
 info:
   version: "2024-01-31T11:07:13Z"
