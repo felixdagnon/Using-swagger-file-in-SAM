@@ -96,7 +96,7 @@ definitions:
  
  and create sam template  in SAM folder called "swagger-preexisting-lambda.yml"
 
-```json
+```yml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: SAm and Swagger with preexisting Lambda
@@ -106,7 +106,6 @@ Resources:
     Properties:
       StageName: Dev
       DefinitionUri: ./APIfiles/swagger-with-preexistingLambda.yaml
-
 ```
 
 Here ine Cloud9 
