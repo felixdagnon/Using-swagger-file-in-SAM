@@ -36,7 +36,7 @@ Let’s get started.
 - Creating API with Swagger and new lambda in SAM
 
 
-# Swagger with already created lambda
+# 1-Swagger with already created lambda
 
 Here Sswagger  with url of AI gateway pointing to preexisting lambda. If we are exporting swagger from API and API gateway and we have to recreate
 
@@ -112,7 +112,7 @@ Here ine Cloud9
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/0846396c-06c4-47ae-830b-715297177944)
 
 
-# Create swagger preexisting lambda template with SAM
+# 2-Create swagger preexisting lambda template with SAM
 
 Let's run this package swagger-preexisting-lambda.yml:
 
@@ -129,7 +129,7 @@ Let's check s3 bucket
 ![image](https://github.com/felixdagnon/Create-API-and-lambda-events-using-SAM/assets/91665833/6338f502-f995-48cb-8617-3e459dca00e4)
 
 
-# Deploying swagger preexisting lambda package with SAM
+# 3-Deploying swagger preexisting lambda package with SAM
 
 To deploy the package run the below command
 
@@ -160,7 +160,7 @@ Let's check query string in integration request. It's grabbing "naofCountry" fro
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/5ef879ca-7b76-42a6-9c93-4811585e39dc)
 
 
-# Creating API with Swagger and new lambda in SAM
+# 4-Creating API with Swagger and new lambda in SAM
 
 The most difference here, we will give the name of lambda function in swagger template. Previouly, we let SAM give idendical name to the function.
 
@@ -265,7 +265,7 @@ Let's check s3 bucket
 ![image](https://github.com/felixdagnon/Create-API-and-lambda-events-using-SAM/assets/91665833/6338f502-f995-48cb-8617-3e459dca00e4)
 
 
-# Deploying swagger preexisting lambda package with SAM
+# 5-Deploying swagger preexisting lambda package with SAM
 
 To deploy the package run the below command
 
