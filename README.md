@@ -106,7 +106,7 @@ Resources:
       DefinitionUri: ./APIfiles/swagger-with-preexistingLambda.yaml
 ```
 
-Here ine Cloud9 
+Here in Cloud9 
 
 
 ![image](https://github.com/felixdagnon/Using-swagger-file-in-SAM/assets/91665833/0846396c-06c4-47ae-830b-715297177944)
